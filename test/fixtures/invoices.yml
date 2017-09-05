@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_name: MyString
+  invoicing_date: 2017-09-05
+  due_date: 2017-09-05
+  terms_and_conditions: false
+  payment_mode: 1
+
+two:
+  customer_name: MyString
+  invoicing_date: 2017-09-05
+  due_date: 2017-09-05
+  terms_and_conditions: false
+  payment_mode: 1

@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Customer name:
+  = @invoice.customer_name
+p
+  strong Invoicing date:
+  = @invoice.invoicing_date
+p
+  strong Due date:
+  = @invoice.due_date
+p
+  strong Terms and conditions:
+  = @invoice.terms_and_conditions
+p
+  strong Payment mode:
+  = @invoice.payment_mode
+
+= link_to 'Edit', edit_invoice_path(@invoice)
+'  |
+= link_to 'Back', invoices_path

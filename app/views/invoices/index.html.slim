@@ -1,0 +1,31 @@
+.row
+  .col.s10.push-s1
+    h1 Listing invoices
+
+    table
+      thead
+        tr
+          th Customer name
+          th Invoicing date
+          th Due date
+          th Terms and conditions
+          th Payment mode
+          th
+          th
+          th
+
+      tbody
+        - @invoices.each do |invoice|
+          tr
+            td = invoice.customer_name
+            td = invoice.invoicing_date
+            td = invoice.due_date
+            td = invoice.terms_and_conditions
+            td = invoice.payment_mode
+            td = link_to 'Show', invoice
+            td = link_to 'Edit', edit_invoice_path(invoice)
+            td = link_to 'Destroy', invoice, data: { confirm: 'Are you sure?' }, method: :delete
+
+    br
+
+    = link_to 'New Invoice', new_invoice_path
