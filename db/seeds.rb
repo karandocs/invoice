@@ -7,3 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Fabricate.times(50, :invoice)
+
+Invoice.all.each do |invoice|
+  Fabricate.times(5, :product, invoice: invoice)
+end

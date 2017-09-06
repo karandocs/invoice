@@ -43,6 +43,12 @@ gem 'faker'
 gem 'fabrication'
 gem "cocoon"
 
+#pdf
+gem 'prawn'
+gem 'prawnto'
+gem 'prawn-qrcode'
+gem 'prawn-table'
+
 #pagination
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 

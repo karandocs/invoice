@@ -23,7 +23,8 @@
         tr
           td No products
 
-
-  = link_to 'Edit', edit_invoice_path(@invoice), class: "button waves-effect waves-light btn red white-text"
-  '  |
-  = link_to 'Back', invoices_path, class: "button waves-effect waves-light btn red white-text"
+  = link_to 'Print PDF', invoice_path(@invoice, format: :pdf), class: "button waves-effect waves-light btn teal white-text"
+  .mt10
+    = link_to 'Edit', edit_invoice_path(@invoice), class: "button waves-effect waves-light btn red white-text"
+    '  |
+    = link_to 'Back', invoices_path, class: "button waves-effect waves-light btn red white-text"
