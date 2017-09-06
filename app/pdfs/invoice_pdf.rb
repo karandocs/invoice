@@ -10,7 +10,7 @@ class InvoicePdf < Prawn::Document
   end
 
   def company_name
-    cell_1 = make_cell(content: "Invoice", borders: [], size: 35, :text_color => "37474f")
+    cell_1 = make_cell(content: "Invoice", borders: [], size: 35, :text_color => "012250")
     cell_2 = make_cell(content: "From InventBlue Organization", borders: [], size: 30, :text_color => "37474f")
     cell_3 = make_cell(content: "Customer name: #{@invoice.user.full_name}", borders: [], size: 14, :text_color => "37474f")
     cell_4 = make_cell(content: "Invoicing date: #{@invoice.invoicing_date.strftime(" %d-%B-%Y")}", borders: [], size: 14, :text_color => "37474f")
