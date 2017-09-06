@@ -12,9 +12,11 @@ class InvoicePdf < Prawn::Document
   def company_name
     cell_1 = make_cell(content: "Invoice", borders: [], size: 35, :text_color => "37474f")
     cell_2 = make_cell(content: "From InventBlue Organization", borders: [], size: 30, :text_color => "37474f")
-    cell_3 = make_cell(content: "Invoicing date: #{@invoice.invoicing_date.strftime(" %d-%B-%Y")}", borders: [], size: 14, :text_color => "37474f")
-    cell_4 = make_cell(content: "Due date: #{@invoice.due_date.strftime(" %d-%B-%Y")}", borders: [], size: 14, :text_color => "37474f")
-    t = make_table [[cell_1],[cell_2],[cell_3], [cell_4] ] do
+    cell_3 = make_cell(content: "Customer name: #{@invoice.user.full_name}", borders: [], size: 14, :text_color => "37474f")
+    cell_4 = make_cell(content: "Invoicing date: #{@invoice.invoicing_date.strftime(" %d-%B-%Y")}", borders: [], size: 14, :text_color => "37474f")
+    cell_5 = make_cell(content: "Due date: #{@invoice.due_date.strftime(" %d-%B-%Y")}", borders: [], size: 14, :text_color => "37474f")
+    cell_6 = make_cell(content: "Mobile: #{@invoice.user.mobile}", borders: [], size: 14, :text_color => "37474f")
+    t = make_table [[cell_1],[cell_2],[cell_3], [cell_4], [cell_5], [cell_6] ] do
           rows(0..2).borders = []
     end
     t.draw

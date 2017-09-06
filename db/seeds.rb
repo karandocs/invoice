@@ -6,8 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Fabricate.times(50, :invoice)
+puts 'Importing users'
+Fabricate.times(5, :user)
+Fabricate(:user, email: 'karan@gmail.com')
+Fabricate(:user, email: 'naveen@inventblue.com')
 
+puts 'Importing invoices'
+user = User.all.find_by(email: 'naveen@inventblue.com')
+Fabricate.times(20, :invoice, user: user)
+
+puts 'Importing products'
 Invoice.all.each do |invoice|
   Fabricate.times(5, :product, invoice: invoice)
 end

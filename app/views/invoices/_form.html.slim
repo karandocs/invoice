@@ -6,6 +6,8 @@
         - @invoice.errors.full_messages.each do |message|
           li = message
   .field
+    = f.input :user_id, as: :hidden, input_html: {value: current_user.id}
+  .field
     = f.input :customer_name, input_html: {value: current_user.full_name}
   .field
     = f.input :invoicing_date, as: :string, input_html: {class: 'datepicker'}

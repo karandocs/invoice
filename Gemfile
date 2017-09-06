@@ -33,20 +33,27 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#powerful form components
 gem 'simple_form'
+#slim framework for rails
 gem 'slim-rails'
+#authentication for users
 gem 'devise'
+#jquery framework
 gem 'jquery-rails'
+#materialize-sass framework
 gem 'materialize-sass'
+#font-awesome-rails icons
 gem "font-awesome-rails"
+#faker for fake details
 gem 'faker'
+#fabrication to fabricate details
 gem 'fabrication'
+#nested form
 gem "cocoon"
-
 #pdf
 gem 'prawn'
 gem 'prawnto'
-gem 'prawn-qrcode'
 gem 'prawn-table'
 
 #pagination
@@ -58,6 +65,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :development do

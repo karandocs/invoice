@@ -4,7 +4,7 @@ class InvoicesController < ApplicationController
   # GET /invoices
   # GET /invoices.json
   def index
-    @invoices = Invoice.all.latest_created_at.page params[:page]
+    @invoices = current_user.invoices.all.latest_created_at.page params[:page]
   end
 
   # GET /invoices/1
@@ -78,6 +78,6 @@ class InvoicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def invoice_params
-      params.require(:invoice).permit(:customer_name, :invoicing_date, :due_date, :terms_and_conditions, :payment_mode, products_attributes: [:id, :name, :_destroy])
+      params.require(:invoice).permit(:user_id, :customer_name, :invoicing_date, :due_date, :terms_and_conditions, :payment_mode, products_attributes: [:id, :name, :_destroy])
     end
 end

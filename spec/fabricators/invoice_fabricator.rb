@@ -4,4 +4,5 @@ Fabricator(:invoice) do
   due_date { Date.today + 10 }
   payment_mode ['cash', 'cheque', 'draft'].sample
   terms_and_conditions true
+  user
 end
