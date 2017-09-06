@@ -33,5 +33,6 @@
               td = link_to '', invoice, data: { confirm: 'Are you sure?' }, method: :delete, class:"fa fa-trash waves-effect waves-light white-text btn teal"
 
     br
+    /for pagination
     = paginate @invoices
     = link_to 'New Invoice', new_invoice_path, class: "btn button waves-effect waves-light btn red white-text"

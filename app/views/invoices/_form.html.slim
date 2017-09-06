@@ -13,6 +13,7 @@
     = f.input :invoicing_date, as: :string, input_html: {class: 'datepicker'}
   .field
     = f.input :due_date, as: :string, input_html: {class: 'datepicker'}
+  /nested form for products
   #tasks
     = f.simple_fields_for :products do |product|
       = render 'product_fields', f: product
