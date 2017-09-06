@@ -8,7 +8,7 @@
           th Customer name
           th Invoicing date
           th Due date
-          th Terms and conditions
+          th Products
           th Payment mode
           th
           th
@@ -22,10 +22,10 @@
               td = invoice.invoicing_date
               td = invoice.due_date
               td
-                - if invoice.terms_and_conditions
-                  i.fa.fa-check
+                - if invoice.products.present?
+                  = invoice.products.first.name
                 - else
-                  i.fa.fa-remove
+                  | NA
               td = invoice.payment_mode
               td = link_to '', invoice, class: "fa fa-eye button waves-effect waves-light btn teal white-text"
               td = link_to '', invoice_path(invoice, format: :pdf), class: "button waves-effect waves-light fa fa-print btn teal white-text"

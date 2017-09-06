@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  rescue_from ActionController::RoutingError do |exception|
+    render_404
+  end
 
   #exceptions
   protect_from_forgery with: :exception
@@ -9,6 +12,14 @@ class ApplicationController < ActionController::Base
   #callbacks
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  def render_404
+    respond_to do |format|
+      format.html { render "errors/not_found", :status => '404 Not Found', :layout => false }
+      format.xml  { render :nothing => true, :status => '404 Not Found' }
+    end
+    true
+  end
 
   protected
 
