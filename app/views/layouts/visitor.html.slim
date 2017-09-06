@@ -1,0 +1,18 @@
+= render :layout => "layouts/visitor" do
+  nav
+    .nav-wrapper.red
+      = link_to 'Invoice Management', root_path, class:"ml5 flow-text"
+      ul#nav-mobile.right.hide-on-med-and-down
+        - if user_signed_in?
+          li
+            = link_to 'New invoice', new_invoice_path
+          li
+            a href="#" #{current_user.full_name}
+          li
+            = link_to 'Logout', destroy_user_session_path, :method => :delete
+
+        - else
+          li
+            = link_to 'Sign in', new_user_session_path
+
+  = yield

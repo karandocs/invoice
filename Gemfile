@@ -37,9 +37,14 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'devise'
 gem 'jquery-rails'
-gem 'jquery-ui-rails'
 gem 'materialize-sass'
+gem "font-awesome-rails"
+gem 'faker'
+gem 'fabrication'
+gem "cocoon"
 
+#pagination
+gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

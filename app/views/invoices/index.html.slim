@@ -1,6 +1,6 @@
 .row
   .col.s10.push-s1
-    h1 Listing invoices
+    h3 #{current_user.full_name}'s invoices
 
     table
       thead
@@ -16,16 +16,21 @@
 
       tbody
         - @invoices.each do |invoice|
-          tr
-            td = invoice.customer_name
-            td = invoice.invoicing_date
-            td = invoice.due_date
-            td = invoice.terms_and_conditions
-            td = invoice.payment_mode
-            td = link_to 'Show', invoice
-            td = link_to 'Edit', edit_invoice_path(invoice)
-            td = link_to 'Destroy', invoice, data: { confirm: 'Are you sure?' }, method: :delete
+          .render_invoice_partial id="invoice_data_#{invoice.id}"
+            tr
+              td = invoice.customer_name
+              td = invoice.invoicing_date
+              td = invoice.due_date
+              td
+                - if invoice.terms_and_conditions
+                  i.fa.fa-check
+                - else
+                  i.fa.fa-remove
+              td = invoice.payment_mode
+              td = link_to '', invoice, class: "fa fa-eye button waves-effect waves-light btn teal white-text"
+              td = link_to '', edit_invoice_path(invoice), class: "fa fa-pencil waves-effect waves-light btn teal white-text"
+              td = link_to '', invoice, data: { confirm: 'Are you sure?' }, method: :delete, class:"fa fa-trash waves-effect waves-light white-text btn teal"
 
     br
-
-    = link_to 'New Invoice', new_invoice_path
+    = paginate @invoices
+    = link_to 'New Invoice', new_invoice_path, class: "btn button waves-effect waves-light btn red white-text"

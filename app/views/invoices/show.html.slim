@@ -1,21 +1,29 @@
-p#notice = notice
+.container
+  p#notice = notice
+  table
+    thead
+      tr
+        th Customer name: #{@invoice.customer_name}
+        th Invoicing date: #{@invoice.invoicing_date}
+        th Due date: #{@invoice.due_date}
+  table
+    thead
+      tr
+        th Product name
+        th Payment mode
+    tbody
+      - if @invoice.products.present?
+        - @invoice.products.each do |product|
+          tr
+            td
+              = product.name
+            td
+              = @invoice.payment_mode
+      - else
+        tr
+          td No products
 
-p
-  strong Customer name:
-  = @invoice.customer_name
-p
-  strong Invoicing date:
-  = @invoice.invoicing_date
-p
-  strong Due date:
-  = @invoice.due_date
-p
-  strong Terms and conditions:
-  = @invoice.terms_and_conditions
-p
-  strong Payment mode:
-  = @invoice.payment_mode
 
-= link_to 'Edit', edit_invoice_path(@invoice)
-'  |
-= link_to 'Back', invoices_path
+  = link_to 'Edit', edit_invoice_path(@invoice), class: "button waves-effect waves-light btn red white-text"
+  '  |
+  = link_to 'Back', invoices_path, class: "button waves-effect waves-light btn red white-text"
