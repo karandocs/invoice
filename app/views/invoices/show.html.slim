@@ -28,3 +28,5 @@
     = link_to 'Edit', edit_invoice_path(@invoice), class: "button waves-effect waves-light btn red white-text"
     '  |
     = link_to 'Back', invoices_path, class: "button waves-effect waves-light btn red white-text"
+    '  |
+    = link_to 'Delete', @invoice, data: { confirm: 'Are you sure?' }, method: :delete, class:"waves-effect waves-light white-text btn red"

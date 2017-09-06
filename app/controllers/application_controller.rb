@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  #rescue
   rescue_from ActionController::RoutingError do |exception|
     render_404
   end
@@ -13,6 +14,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  #page not found rescue method
   def render_404
     respond_to do |format|
       format.html { render "errors/not_found", :status => '404 Not Found', :layout => false }
@@ -22,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
+    #configure extra params for signup method
     def configure_permitted_parameters
       added_attrs = [:full_name, :mobile]
       devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
