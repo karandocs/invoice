@@ -15,7 +15,7 @@ puts 'Importing invoices'
 user = User.all.find_by(email: 'naveen@inventblue.com')
 Fabricate.times(20, :invoice, user: user)
 
-puts 'Importing products'
-Invoice.all.each do |invoice|
-  Fabricate.times(5, :product, invoice: invoice)
-end
+# puts 'Importing products'
+# Invoice.all.each do |invoice|
+#   Fabricate.times(5, :product, invoice: invoice)
+# end

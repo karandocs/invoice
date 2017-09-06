@@ -5,4 +5,5 @@ Fabricator(:invoice) do
   payment_mode ['cash', 'cheque', 'draft'].sample
   terms_and_conditions true
   user
+  products(count: 4)
 end
